@@ -13,7 +13,7 @@ class LoadWin(QtWidgets.QMainWindow, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
         #
-        self.pushButton.setToolTip("QQQ"))
+        self.pushButton.setToolTip("QQQ") #修改提示文本
         self.pushButton.clicked.connect(self.CalculateTax) #定义界面按钮的单击动作链接的执行函数
     #定义响应函数
     def CalculateTax(self):
