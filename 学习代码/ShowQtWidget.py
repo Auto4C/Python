@@ -1,4 +1,4 @@
-#QT的界面显示
+# QT的界面显示
 
 import sys
 from PyQt5 import QtCore, QtWidgets

@@ -3,7 +3,7 @@
 import time
 import sys
 from PyQt5 import QtCore, QtWidgets
-
+print("weo w")
 app = QtWidgets.QApplication(sys.argv)
 widget = QtWidgets.QWidget()
 widget.resize(400, 100)
