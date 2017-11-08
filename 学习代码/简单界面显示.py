@@ -1,4 +1,4 @@
-# QT的界面显示 测试更改
+# QT的界面显示
 
 import time
 import sys
