@@ -1,4 +1,4 @@
-# QT的界面显示
+# QT的界面显示 ce
 
 import time
 import sys
