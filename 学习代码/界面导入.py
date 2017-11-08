@@ -1,5 +1,5 @@
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets,uic
+from PyQt5 import QtCore, QtGui, QtWidgets, uic
 
 
 import MegBox
@@ -30,8 +30,9 @@ class LoadWin(QtWidgets.QMainWindow, Ui_MainWindow):
         total_price_string = "The total price with tax is: " + str(total_price)
         self.ResultBox.setText(total_price_string)
 
+
 # 这段主程序创建了一个新的QtWidgets应用，每个Qt应用都可以通过命令行进行配置（需传入sys.argv参数）
-if __name__ =="__main__":
+if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = LoadWin()
     window.show()
