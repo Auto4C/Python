@@ -1,10 +1,15 @@
-#!/usr/bin/python
-#coding:utf8
+# 备忘录
 '''
-Memento
+意图：
+在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。
+这样以后就可将该对象恢复到原先保存的状态。
+适用性：
+必须保存一个对象在某一个时刻的(部分)状态, 这样以后需要时它才能恢复到先前的状态。
+如果一个用接口来让其它对象直接得到这些状态，将会暴露对象的实现细节并破坏对象的封装性
 '''
 
 import copy
+
 
 def Memento(obj, deep=False):
     state = (copy.copy, copy.deepcopy)[bool(deep)](obj.__dict__)
@@ -13,6 +18,7 @@ def Memento(obj, deep=False):
         obj.__dict__.clear()
         obj.__dict__.update(state)
     return Restore
+
 
 class Transaction:
     """A transaction guard. This is really just
@@ -31,10 +37,12 @@ class Transaction:
         for st in self.states:
             st()
 
+
 class transactional(object):
     """Adds transactional semantics to methods. Methods decorated  with
     @transactional will rollback to entry state upon exceptions.
     """
+
     def __init__(self, method):
         self.method = method
 
@@ -47,6 +55,7 @@ class transactional(object):
                 state()
                 raise
         return transaction
+
 
 class NumObj(object):
     def __init__(self, value):
@@ -62,6 +71,7 @@ class NumObj(object):
     def DoStuff(self):
         self.value = '1111'  # <- invalid value
         self.Increment()     # <- will fail and rollback
+
 
 if __name__ == '__main__':
     n = NumObj(-1)
