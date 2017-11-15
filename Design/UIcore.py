@@ -1,7 +1,10 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
-import Maincore
+# import Maincore # Python是可以相互import的（但不建议使用该方式）
+
 # 使用uic.loadUiType载入界面文件
+from Design.UIEvent import UIeve
+
 ui_filename = 'testui_1.ui'  # 文件名称，相对于项目路径
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(ui_filename)
@@ -16,14 +19,16 @@ class LoadWin(QtWidgets.QMainWindow, Ui_MainWindow):
         #
         self.pushButton.setToolTip("QQQ")  # 修改提示文本
         # 定义界面按钮的单击动作链接的执行函数
-        self.pushButton.clicked.connect(self.CalculateTax)
+        self.pushButton.clicked.connect(self.Bevent)
 
     # 定义响应函数
-    def CalculateTax(self):
+    def Bevent(self):
         price = int(self.inputbox.toPlainText())
         # if price == None:
         #     price = 1
         tax = (self.spinRate.value())
         # total_price = price + ((tax / 100) * price)
-        total_price_string = Maincore.Calc(price, tax)
+        # total_price_string = Maincore.Calc(price, tax)
+        calc=UIeve("add")
+        total_price_string=calc._Result("sss")
         self.ResultBox.setText(total_price_string)
